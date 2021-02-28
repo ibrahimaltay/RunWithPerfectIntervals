@@ -1,15 +1,15 @@
 import time
 
-def run_method_with_perfect_intervals(interval_seconds):
-    
-    #start = time.perf_counter()
+def helloworld():
+    print("HelloWorld!")
+
+def run_method_with_perfect_intervals(method, interval_seconds):
+
     while True:
         timer_start = time.perf_counter_ns()
-        print("Hello world")
+        method()
         timer_stop = time.perf_counter_ns()
         
-        print((timer_stop - timer_start)/1000000)
+        print('It took', (timer_stop - timer_start)/1000000, 'miliseconds to run this piece of code.')
         time.sleep(interval_seconds - (timer_stop - timer_start) / 1000000000)
-    #end = time.perf_counter()
-    
-    #print(f"Completed in: {end - start} seconds!")
+        print("Execution time was subtracted from the sleeping time to ensure perfect timing!")
